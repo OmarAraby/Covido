@@ -65,7 +65,7 @@
                                 
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="{% url "home:about" %}">About</a>
                             </li>
                             <li>
                                 <a href="{% url "home:prevention" %}">Preventions</a>
@@ -124,7 +124,7 @@
                                 <h3 class="footer-widget__title">Quick Links</h3><!-- /.footer-widget__title -->
                                 <div class="footer-widget__links-wrap">
                                     <ul class="list-unstyled footer-widget__links-list">
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="{% url "home:about" %}">About</a></li>
                                         
                                         <li><a href="{% url "home:prevention" %}">Prevention</a></li>
                                         <li><a href="{% url "contact:contact" %}">Contact</a></li>
