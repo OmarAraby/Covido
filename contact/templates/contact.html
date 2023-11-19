@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block body %}
+
+
+<section class="page-header">
+    <div class="container">
+        <h2>Contact</h2>
+        <ul class="thm-breadcrumb list-unstyled">
+            <li><a href="{% url "home:home" %}">Home</a></li>
+            <li><span>Contact</span></li>
+        </ul><!-- /.thm-breadcrumb -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<section class="contact-one">
+    <div class="container">
+        <div class="block-title text-center">
+            <p>Contact With Us</p>
+            <h3>Still Have a Question?</h3>
+        </div><!-- /.block-title -->
+        <form  class="contact-form-validated contact-one__form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" name="name" placeholder="Name">
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <input type="text" name="email" placeholder="Email Address">
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <input type="text" name="phone" placeholder="Phone Number">
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <select class="selectpicker" name="discuss">
+                        <option value="">Discussion For</option>
+                        <option value="#">For Test Kit</option>
+                        <option value="#">For Quarentien</option>
+                    </select><!-- /#.selectpicker -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-12">
+                    <input type="text" name="subject" placeholder="Subject">
+                </div><!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <textarea name="message" placeholder="Write Message"></textarea>
+                </div><!-- /.col-lg-12 -->
+                <div class="col-lg-12 text-center">
+                    <button type="submit" class="thm-btn contact-one__btn">Send Message</button>
+                    <!-- /.thm-btn contact-one__btn -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </form><!-- /.contact-one__form -->
+        <div class="result"></div><!-- /.result -->
+    </div><!-- /.container -->
+</section><!-- /.contact-one -->
+
+<section class="contact-info-one">
+    <div class="container">
+        <div class="inner-container">
+            <div class="contact-info-one__icon">
+                <i class="vimns-icon-phone"></i>
+            </div><!-- /.contact-info-one__icon -->
+            <div class="contact-info-one__content">
+                <div class="contact-info-one__box">
+                    <div class="contact-info-one__box-inner">
+
+                        <h3>Visit Hospital</h3>
+                        <p>19/293, Vihang Tower, Mumbai 400104</p>
+
+                    </div><!-- /.contact-info-one__box-inner -->
+                </div><!-- /.contact-info-one__box -->
+                <div class="contact-info-one__box">
+                    <div class="contact-info-one__box-inner">
+
+                        <h3>Call Now</h3>
+                        <p><a href="tel:666-888-0000">666 888 0000</a></p>
+
+                    </div><!-- /.contact-info-one__box-inner -->
+                </div><!-- /.contact-info-one__box -->
+                <div class="contact-info-one__box">
+                    <div class="contact-info-one__box-inner">
+
+                        <h3>Send Email</h3>
+                        <p><a href="mailto:kaushikjadhav01@github.com">kaushikjadhav01@github.com</a></p>
+
+                    </div><!-- /.contact-info-one__box-inner -->
+                </div><!-- /.contact-info-one__box -->
+            </div><!-- /.contact-info-one__content -->
+        </div><!-- /.inner-container -->
+    </div><!-- /.container -->
+</section><!-- /.contact-info-one -->
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.7949313764275!2d72.84220801421405!3d19.160451754293128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b64e6910080f%3A0xa4f7e92716aee28b!2sVihang%20Cooperative%20Housing%20Society!5e0!3m2!1sen!2sin!4v1590664940854!5m2!1sen!2sin" class="google-map__contact" allowfullscreen></iframe>
+
+
+
+
+
+
+
+{% endblock body %}
