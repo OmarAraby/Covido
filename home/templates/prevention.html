@@ -26,52 +26,20 @@
                         <h3>Things You Should Do</h3>
                     </div><!-- /.prevention-one__box-top -->
                     <div class="prevention-one__box-bottom">
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-do-i-1-1.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Wash Your Hands 20 Seconds </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
-
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-do-i-1-2.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Wear a mask if you need to step outside</h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
-
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-do-i-1-3.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Avoid Handshakes </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-do-i-1-4.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Cover your mouth while sneezing </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
+                        {% for prev in preventions_should_do %}
+                            <div class="prevention-one__single">
+                                <div class="prevention-one__icon">
+                                    <div class="prevention-one__icon-inner">
+                                        <img src="{{ prev.image.url }}" alt="{{ prev.title }}">
+                                    </div><!-- /.prevention-one__icon-inner -->
+                                </div><!-- /.prevention-one__icon -->
+                                <div class="prevention-one__content">
+                                    <h3>{{ prev.title }} </h3>
+                                </div><!-- /.prevention-one__content -->
+                            </div><!-- /.prevention-one__single -->
+                        {% endfor %}
+                        
+                        
                     </div><!-- /.prevention-one__box-bottom -->
                 </div><!-- /.prevention-one__box -->
             </div><!-- /.col-lg-6 -->
@@ -81,52 +49,20 @@
                         <h3>Things You Shouldn't Do</h3>
                     </div><!-- /.prevention-one__box-top -->
                     <div class="prevention-one__box-bottom">
+                        {% for prev in preventions_should_not_do %}
                         <div class="prevention-one__single">
                             <div class="prevention-one__icon">
                                 <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-no-i-1-1.png" alt="">
+                                    <img src="{{ prev.image.url }}" alt="{{ prev.title }}">
                                 </div><!-- /.prevention-one__icon-inner -->
                             </div><!-- /.prevention-one__icon -->
                             <div class="prevention-one__content">
-                                <h3>Do not panic </h3>
-                                
+                                <h3>{{ prev.title }} </h3>
                             </div><!-- /.prevention-one__content -->
                         </div><!-- /.prevention-one__single -->
+                    {% endfor %}
+                        
 
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-no-i-1-2.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Avoid Touching your Face </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
-
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-no-i-1-3.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Avoid crowded places </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
-                        <div class="prevention-one__single">
-                            <div class="prevention-one__icon">
-                                <div class="prevention-one__icon-inner">
-                                    <img src="assets/images/shapes/should-no-i-1-4.png" alt="">
-                                </div><!-- /.prevention-one__icon-inner -->
-                            </div><!-- /.prevention-one__icon -->
-                            <div class="prevention-one__content">
-                                <h3>Avoid physical contact with objects when you step out </h3>
-                                
-                            </div><!-- /.prevention-one__content -->
-                        </div><!-- /.prevention-one__single -->
                     </div><!-- /.prevention-one__box-bottom -->
                 </div><!-- /.prevention-one__box -->
             </div><!-- /.col-lg-6 -->
@@ -144,7 +80,7 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="000ms">
                 <div class="hand-wash-one__single">
                     <div class="hand-wash-one__image">
-                        <img src="assets/images/shapes/hw-i-1-1.png" alt="">
+                        <img src="{% static "assets/images/shapes/hw-i-1-1.png" %}" alt="">
                     </div><!-- /.hand-wash-one__image -->
                     <h3>Use Soap</h3>
                 </div><!-- /.hand-wash-one__single -->
@@ -152,7 +88,7 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
                 <div class="hand-wash-one__single">
                     <div class="hand-wash-one__image">
-                        <img src="assets/images/shapes/hw-i-1-2.png" alt="">
+                        <img src="{% static "assets/images/shapes/hw-i-1-2.png" %}" alt="">
                     </div><!-- /.hand-wash-one__image -->
                     <h3>Palm to Palm</h3>
                 </div><!-- /.hand-wash-one__single -->

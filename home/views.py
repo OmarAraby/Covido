@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import FAQ
+from .models import FAQ , Prevention
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -28,12 +28,14 @@ def detect(request):
 
 
 
-
 def prevention(request):
+    preventions_should_do = Prevention.objects.filter(tag="Things You Should Do")
+    preventions_should_not_do = Prevention.objects.filter(tag="Things You Shouldn't Do")
 
 
-    return render(request,'prevention.html')
+    context = {'preventions_should_do': preventions_should_do, 'preventions_should_not_do': preventions_should_not_do}
 
+    return render(request, 'prevention.html', context)
 
 
 
