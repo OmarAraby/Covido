@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Info
+from .models import Info ,Feedback,ImageSlide
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -50,8 +50,10 @@ def contact(request):
 
 
 def about(request):
+    feedbacks = Feedback.objects.all()
+    images = ImageSlide.objects.all()
+    
+    context = {'feedbacks':feedbacks,'images':images}
 
-
-
-    return render(request,'about.html')
+    return render(request,'about.html',context)
 
