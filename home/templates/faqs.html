@@ -14,146 +14,80 @@
 </section><!-- /.page-header -->
 
 <section class="faq-one faq-one__faq-page">
-<div class="container">
-    <div class="block-title text-center">
-        <p>Frequently Asked Questions </p>
-        <h3>Have any question?</h3>
-    </div><!-- /.block-title -->
+    <div class="container">
+        <div class="block-title text-center">
+            <p>Frequently Asked Questions</p>
+            <h3>Have any question?</h3>
+        </div><!-- /.block-title -->
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-                <div class="accrodion active">
-                    <div class="accrodion-title">
-                        <h4>What Are The Coronavirus Symptoms?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>Why We Should Stay At Home?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>COVID-19 Illness can Affect Your Lungs?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>Find Out How We Are Monitoring Corona?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-            </div>
-        </div><!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-            <div class="accrodion-grp" data-grp-name="faq-two-accrodion">
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>What Are The Coronavirus Symptoms?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion active">
-                    <div class="accrodion-title">
-                        <h4>Why We Should Stay At Home?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>COVID-19 Illness can Affect Your Lungs?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-                <div class="accrodion ">
-                    <div class="accrodion-title">
-                        <h4>Find Out How We Are Monitoring Corona?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>There are many variations of passages of available but majority have alteration in
-                                some by inject humour or random . </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-            </div>
-        </div><!-- /.col-lg-6 -->
-
-    </div><!-- /.row -->
-</div><!-- /.container -->
-</section><!-- /.faq-one -->
-
-<section class="contact-one">
-<div class="container">
-    <div class="block-title text-center">
-        <p>Contact With Us</p>
-        <h3>Still Have a Question?</h3>
-    </div><!-- /.block-title -->
-    <form action="#" class="contact-one__form">
         <div class="row">
             <div class="col-lg-6">
-                <input type="text" placeholder="Name">
+                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                    {% for faq in faqs_first_half %}
+                    <div class="accrodion">
+                        <div class="accrodion-title">
+                            <h4>{{ faq.question }}</h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <div class="inner">
+                                <p>{{ faq.answer }}</p>
+                            </div><!-- /.inner -->
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div><!-- /.col-lg-6 -->
             <div class="col-lg-6">
-                <input type="text" placeholder="Email Address">
+                <div class="accrodion-grp" data-grp-name="faq-two-accrodion">
+                    {% for faq in faqs_second_half %}
+                    <div class="accrodion ">
+                        <div class="accrodion-title">
+                            <h4>{{ faq.question }}</h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <div class="inner">
+                                <p>{{ faq.answer }}</p>
+                            </div><!-- /.inner -->
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div><!-- /.col-lg-6 -->
-            <div class="col-lg-6">
-                <input type="text" placeholder="Phone Number">
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-6">
-                <input type="text" placeholder="Subject">
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-12">
-                <textarea placeholder="Write Message"></textarea>
-            </div><!-- /.col-lg-12 -->
-            <div class="col-lg-12 text-center">
-                <button type="submit" class="thm-btn contact-one__btn">Send Message</button>
-                <!-- /.thm-btn contact-one__btn -->
-            </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
-    </form><!-- /.contact-one__form -->
-</div><!-- /.container -->
+    </div><!-- /.container -->
+</section><!-- /.faq-one -->
+
+   <section class="contact-one">
+    <div class="container">
+        <div class="block-title text-center">
+            <p>Contact With Us</p>
+            <h3>Still Have a Question?</h3>
+        </div><!-- /.block-title -->
+        <form  class="contact-form-validated contact-one__form"  method="post">
+            {% csrf_token %}
+            <div class="row">
+            
+                <div class="col-lg-6">
+                    <input name="email" id="email" type="email" placeholder="Email Address">
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <input type="text" name="phone" id="phone" placeholder="Phone Number">
+                </div><!-- /.col-lg-6 -->
+        
+                <div class="col-lg-12">
+                    <input type="text" name="subject" id="subject" placeholder="Subject">
+                </div><!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <textarea name="message" id="message" placeholder="Write Message"></textarea>
+                </div><!-- /.col-lg-12 -->
+                <div class="col-lg-12 text-center">
+                    <button type="submit" class="thm-btn contact-one__btn">Send Message</button>
+                    <!-- /.thm-btn contact-one__btn -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </form><!-- /.contact-one__form -->
+        <div class="result"></div><!-- /.result -->
+    </div><!-- /.container -->
 </section><!-- /.contact-one -->
 
 

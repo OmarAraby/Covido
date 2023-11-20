@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import FAQ
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 
@@ -42,5 +45,60 @@ def prevention(request):
 
 def faqs(request):
 
+    faqs = FAQ.objects.all()
+    
+    # Determine if the length is even or odd
+    is_odd_length = len(faqs) % 2 != 0
 
-    return render(request,'faqs.html')
+    # Calculate the index to split the FAQs into two halves
+    split_index = len(faqs) // 2 + (1 if is_odd_length else 0)
+
+    # Slice the FAQs into two halves
+    faqs_first_half = faqs[:split_index]
+    faqs_second_half = faqs[split_index:]
+
+
+
+    ## FAQs Form
+
+    if request.method=='POST':
+            
+            email = request.POST['email']
+            phone = request.POST['phone']
+            subject = request.POST['subject']
+            message = request.POST['message']
+            
+
+
+    
+
+            email_subject = 'New Covido Contact Submission Form FAQs '
+            message = 'Subject : {}\nEmail :  {}\nPhone_Number : {}\n\nMessage :\n{}'.format(subject, email, phone, message)
+            from_email = settings.DEFAULT_FROM_EMAIL
+            recipient_list = [settings.CONTACT_EMAIL]
+
+            
+            
+            send_mail(
+                subject=email_subject,
+                message=message,
+                from_email=from_email,
+                recipient_list=recipient_list,
+                fail_silently=False,
+                
+            )
+
+            return redirect('home:faqs')
+
+
+
+
+
+    # Pass the data to the template
+    context = {
+        'faqs_first_half': faqs_first_half,
+        'faqs_second_half': faqs_second_half,
+    }
+
+
+    return render(request,'faqs.html',context)
