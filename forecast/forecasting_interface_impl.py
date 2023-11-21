@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from prophet import Prophet
 from sklearn.metrics import r2_score
 
-from forecasting_interface import ForecastingModelInterface
+from .forecasting_interface import ForecastingModelInterface
 
 
 class ForecastingModelInterfaceImp(ForecastingModelInterface):
