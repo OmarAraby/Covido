@@ -1,0 +1,59 @@
+{% load static %}
+
+
+<section class="prevention-one prevention-one__prevention-page">
+    <div class="container">
+        <div class="block-title text-center">
+            <p>List of All Preventions </p>
+            <h3>Checkout Our Main Precaution</h3>
+        </div><!-- /.block-title text-center -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="prevention-one__box">
+                    <div class="prevention-one__box-top">
+                        <h3>Things You Should Do</h3>
+                    </div><!-- /.prevention-one__box-top -->
+                    <div class="prevention-one__box-bottom">
+                        {% for prev in preventions_should_do %}
+                            <div class="prevention-one__single">
+                                <div class="prevention-one__icon">
+                                    <div class="prevention-one__icon-inner">
+                                        <img src="{{ prev.image.url }}" alt="{{ prev.title }}">
+                                    </div><!-- /.prevention-one__icon-inner -->
+                                </div><!-- /.prevention-one__icon -->
+                                <div class="prevention-one__content">
+                                    <h3>{{ prev.title }} </h3>
+                                </div><!-- /.prevention-one__content -->
+                            </div><!-- /.prevention-one__single -->
+                        {% endfor %}
+                        
+                        
+                    </div><!-- /.prevention-one__box-bottom -->
+                </div><!-- /.prevention-one__box -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="prevention-one__box">
+                    <div class="prevention-one__box-top">
+                        <h3>Things You Shouldn't Do</h3>
+                    </div><!-- /.prevention-one__box-top -->
+                    <div class="prevention-one__box-bottom">
+                        {% for prev in preventions_should_not_do %}
+                        <div class="prevention-one__single">
+                            <div class="prevention-one__icon">
+                                <div class="prevention-one__icon-inner">
+                                    <img src="{{ prev.image.url }}" alt="{{ prev.title }}">
+                                </div><!-- /.prevention-one__icon-inner -->
+                            </div><!-- /.prevention-one__icon -->
+                            <div class="prevention-one__content">
+                                <h3>{{ prev.title }} </h3>
+                            </div><!-- /.prevention-one__content -->
+                        </div><!-- /.prevention-one__single -->
+                    {% endfor %}
+                        
+
+                    </div><!-- /.prevention-one__box-bottom -->
+                </div><!-- /.prevention-one__box -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.prevention-one -->

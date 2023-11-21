@@ -73,6 +73,9 @@
                             <li>
                                 <a href="{% url "home:faqs" %}">FAQs</a>
                             </li>
+                            <li>
+                                <a href="{% url "forecast:forecast" %}">Forecast</a>
+                            </li>
 
                             <li class="dropdown">
                                 <a  href="https://news.google.com/search?q=covid" target="_blank">News</a>
@@ -92,7 +95,7 @@
                         </div><!-- /.main-nav__cta-content -->
                     </div><!-- /.main-nav__cta -->
                     <div class="main-nav__right">
-                        <a href="{% url "home:detect" %}" class="main-nav__btn">Detect COVID</a><!-- /.main-nav__btn -->
+                        <a href="{% url "detect:detect" %}" class="main-nav__btn">Detect COVID</a><!-- /.main-nav__btn -->
                     </div><!-- /.main-nav__right -->
                 </div><!-- /.container-fluid -->
             </nav><!-- /.main-nav__one -->

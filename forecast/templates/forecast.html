@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block body %}
+
+
+
+
+
+
+
+
+
+
+<div class="row" width="2500" >
+    <div class="col-md-6" width="2300" >
+      <h3>Total Coronavirus Cases in Egypt</h3>
+      <canvas id="myChartline" height="200" width="250" ></canvas>
+    </div>
+
+    <div class="col-md-6" width="2300" >
+      <h3>Forecasting Coronavirus Cases in Egypt</h3>
+      <canvas id="myChartline2" height="200" width="250" ></canvas>
+    </div>
+    
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+  var endpoint = '/api';
+
+  $.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data) {
+      drawLineGraph(data, 'myChartline');
+      drawLineGraph2(data, 'myChartline');
+      console.log(" ");
+    },
+    error: function(error_data) {
+      console.log(error_data);
+    }
+  })
+
+
+  function drawLineGraph(data) {
+
+    var labels = data.labels;
+    var chartLabel = data.chartLabel;
+    var chartdata = data.chartdata;
+    var recovered = data.recovered;
+    var death = data.death;
+    var forecast = data.forecast;
+    var forecast_lower = data.forecast_lower;
+    var forecast_upper = data.forecast_upper;
+    
+    var ctx = document.getElementById("myChartline").getContext('2d');
+    var ctx2 = document.getElementById("myChartline2").getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      
+      data: {
+        labels:labels ,
+        datasets: [
+        {
+          label: "Confirmed Cases",
+          
+          borderColor: "#ff0000",
+          data: chartdata,
+          fill: false
+        },
+        { 
+          data: recovered,
+          label: "Recovered Cases",
+          borderColor: "#00cc00",
+          fill: false
+        },
+        {
+          data: death,
+          label: "Total Death",
+          borderColor: "#1f2e2e",
+          fill: false
+        },
+        // { 
+        //   data: forecast,
+        //   label: "Forecast yhat",
+        //   borderColor: "#ff0000",
+        //   fill: false
+        // },
+        // { 
+        //   data: forecast_lower,
+        //   label: "Forecast yhat_lower",
+        //   borderColor: "#b300b3",
+        //   fill: false
+        // },
+        // { 
+        //   data: forecast_upper,
+        //   label: "Forecast yhat_upper",
+        //   borderColor: "#006600",
+        //   fill: false
+        // },
+       
+        ]
+      },
+
+      // Configuration options go here
+      options: {
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+
+    });
+    var chart = new Chart(ctx2, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      
+      data: {
+        labels:labels ,
+        datasets: [
+        //{
+        //   label: "Confirmed Cases",
+          
+        //   borderColor: "#ffff00",
+        //   data: chartdata,
+        //   fill: false
+        // },
+        // { 
+        //   data: recovered,
+        //   label: "Recovered Cases",
+        //   borderColor: "#3cba9f",
+        //   fill: false
+        // },
+        // {
+        //   data: death,
+        //   label: "Death",
+        //   borderColor: "#0000b3",
+        //   fill: false
+        // },
+        { 
+          data: forecast,
+          label: "Estimated Infections",
+          borderColor: "#ffff00",
+          fill: false
+        },
+        { 
+          data: forecast_lower,
+          label: "Min_Estimated Infections",
+          borderColor: "#3cba9f",
+          fill: false
+        },
+        { 
+          data: forecast_upper,
+          label: "Max_Estimated Infections",
+          borderColor: "#000099",
+          fill: false
+        },
+       
+        ]
+      },
+
+      // Configuration options go here
+      options: {
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+
+    });
+  }
+
+  /*function drawLineGraph2(data, id) {
+
+    var labels = data.labels;
+    var chartLabel = data.chartLabel;
+    var chartdata = data.chartdata;
+    var recovered = data.recovered;
+    var death = data.death;
+    var forecast = data.forecast;
+    var forecast_lower = data.forecast_lower;
+    var forecast_upper = data.forecast_upper;
+    
+    var ctx = document.getElementById(id).getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'bar',
+
+      // The data for our dataset
+      
+      data: {
+        labels:labels ,
+        datasets: [
+        {
+          label: "Confirmed Cases",
+          
+          borderColor: "#ffff00",
+          data: chartdata,
+          fill: false
+        },
+        { 
+          data: recovered,
+          label: "Recovered Cases",
+          borderColor: "#3cba9f",
+          fill: false
+        },
+        {
+          data: death,
+          label: "Death",
+          borderColor: "#0000b3",
+          fill: false
+        },
+        { 
+          data: forecast,
+          label: "Forecast yhat",
+          borderColor: "#ff0000",
+          fill: false
+        },
+        { 
+          data: forecast_lower,
+          label: "Forecast yhat_lower",
+          borderColor: "#b300b3",
+          fill: false
+        },
+        { 
+          data: forecast_upper,
+          label: "Forecast yhat_upper",
+          borderColor: "##A9A9A9",
+          fill: false
+        },
+       
+        ]
+      },
+
+      // Configuration options go here
+      options: {
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+
+    });
+  }*/
+  
+  
+</script>
+
+{% endblock body %}

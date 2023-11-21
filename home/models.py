@@ -11,7 +11,7 @@ def image_upload(instance, filename):
     else:
         # Handle the case where there are too many or too few periods in the filename
         print("Invalid filename format:", filename)
-    return "jobs/%s.%s" % (instance.id, extension)
+    return "Covido/%s.%s" % (instance.id, extension)
 
 
 
@@ -47,3 +47,11 @@ class Prevention(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+
+
+
+
+

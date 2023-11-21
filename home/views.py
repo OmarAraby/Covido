@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import FAQ , Prevention
+from contact.models import ImageSlide
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -7,21 +8,20 @@ from django.conf import settings
 
 
 def home(request):
+    images = ImageSlide.objects.all()
+    faqs = FAQ.objects.all().order_by('-id')[:5]
+    preventions_should_do = Prevention.objects.filter(tag="Things You Should Do")
+    preventions_should_not_do = Prevention.objects.filter(tag="Things You Shouldn't Do")
+    
+    context = {'images':images,'faqs':faqs,'preventions_should_do': preventions_should_do, 'preventions_should_not_do': preventions_should_not_do}
+
+
+    return render(request,'home.html',context)
 
 
 
-    return render(request,'home.html')
 
 
-
-
-
-
-
-def detect(request):
-
-
-    return render(request,'detect.html')
 
 
 

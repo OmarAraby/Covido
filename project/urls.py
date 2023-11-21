@@ -23,6 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('home.urls', namespace='home') ),
+    path('detect/', include('detect.urls', namespace='detect') ),
+    path('forecast/', include('forecast.urls', namespace='forecast') ),
     path('contact-us/', include('contact.urls', namespace='contact') ),
     
 ]
