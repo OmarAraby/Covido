@@ -1,5 +1,5 @@
 from django.urls import path , include
-from .views import ForecastView  , ChartData
+from .views import forecast  , ChartData
 
 
 
@@ -8,7 +8,7 @@ app_name='forecast'
 
 urlpatterns = [
 
-    path('' ,  ForecastView.as_view(), name='forecast'),
+    path('' ,  forecast, name='forecast'),
     path('api', ChartData.as_view(), name='api_data'),
  
 

@@ -37,10 +37,39 @@ else:
 
 
 
+def forecast(request):
+    # url = "https://covid-19-tracking.p.rapidapi.com/v1/egypt"
+    # headers = {
+    #     "X-RapidAPI-Key": "3bf1f7dc73msh6c437be43ba2064p1ddbe8jsn4f6b3dd4ddf1",
+    #     "X-RapidAPI-Host": "covid-19-tracking.p.rapidapi.com"
+    # }
+    url = 'http://127.0.0.1:8000/forecast/api'
 
-class ForecastView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'forecast.html')
+    response = requests.get(url)
+    data = response.json()
+
+
+    chartLabel = "Covid-19"
+    total_cases = int(data['chartdata'][0].replace(',', ''))
+    recovered = int(data['recovered'][0].replace(',', ''))
+    death = int(data['death'][0].replace(',', ''))
+    all_inf = [total_cases , recovered, death]
+
+    context = {
+        'chartLabel': chartLabel,
+        'total_cases': total_cases,
+        'recovered': recovered,
+        'death': death,
+        'all_inf':all_inf
+    }
+
+    return render(request, 'forecast.html',context)
+
+
+
+
+
+
 
 
 class ChartData(APIView):
