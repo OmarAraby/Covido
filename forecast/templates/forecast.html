@@ -19,14 +19,13 @@
 
 <section class="faq-one faq-one__faq-page">
   <div class="container">
+    <h2 style="text-align: center; font-weight: bold; color: black;">Total Cases : {{total_cases}}</h2>
+    <h2 style="text-align: center; font-weight: bold; color: black;">Total Recovered: {{recovered}}</h2>
+    <h2 style="text-align: center; font-weight: bold; color: black;">TotalDeath: {{death}}</h2>
     <div class="row" width="2500">
-        <div class="col-md-10" width="2300">
+        <div class="col-md-6" width="2300">
           <h1>Total Coronavirus Cases in Egypt</h1>
-          <canvas id="myChart" height="100" width="250"></canvas>
-          <h2>Total Cases : {{total_cases}}</h2>
-          <h2>Total Recovered: {{recovered}}</h2>
-          <h2>TotalDeath: {{death}}</h2>
-
+          <canvas id="myChart" height="300" width="400"></canvas>
         </div>
     
   </div><!-- /.container -->
@@ -36,10 +35,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-  const ctx = document.getElementById('myChart');
+  var  ctx = document.getElementById('myChart').getContext('2d');
 
 
-  new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: ['Total Cases', 'Total Recovered', 'Total Death'],
@@ -70,24 +69,11 @@
     },
     options: {
       scales: {
-        xAxes: [{
-          display: true,
-          ticks: {
-            maxRotation: 0,
-            minRotation: 0,
-            font: {
-              size: 12,
-              style: 'bold'
-            }
-          }
-        }],
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
+        y: {
+          beginAtZero: true
         }
       }
+    }
  
   });
   

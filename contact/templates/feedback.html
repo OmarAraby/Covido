@@ -1,0 +1,62 @@
+{% load static %}
+
+
+
+<section class="testimonials-one" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="testimonials-one__image-block">
+                    <div class="owl-carousel owl-theme" id="sync2">
+                        {% for feedback in feedbacks %}
+                            <div class="item clearfix">
+                                <div class="testimonials-one__image">
+                                    <img src="{{ feedback.image.url }}" style="width: 450px; height: 450px;"  alt="{{feedback.name}}" />
+                                    <div class="testimonials-one__qoute">
+                                        <img src="{% static "assets/images/testimonials/testimonials-qoute-1-1.png" %}" alt="Awesome Image" />
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                       
+                    </div><!-- /.owl-carousel owl-theme -->
+                    <div class="testimonials-one__button-block">
+                        <button class="testimonials-one__button__prev-btn"></button>
+                        <button class="testimonials-one__button__current-btn"></button>
+                        <button class="testimonials-one__button__next-btn"></button>
+                    </div>
+                </div><!-- /.testimonials-one__image-block -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="testimonials-one__content">
+                    <div class="block-title text-left">
+                        <p>Our Feedbacks </p>
+                        <h3>What Infected People Are <br> Saying About Virus</h3>
+                    </div><!-- /.block-title -->
+
+                    <div class="owl-carousel owl-theme" id="sync1">
+                        {% for feedback in feedbacks %}
+                        <div class="item">
+                            <div class="testimonials-one__single" data-thumb-img="{{feedback.image.url}}">
+                                <p class="testimonials-one__text"> {{feedback.feedback}} </p><!-- /.testimonials-one__text -->
+                                <div class="testimonials-one__bottom">
+                                    <h3 class="testimonials-one__title">{{feedback.name}}</h3>
+                                    <!-- /.testimonials-one__title -->
+                                </div><!-- /.testimonials-one__bottom -->
+                            </div><!-- /.testimonials-one__single -->
+                        </div><!-- /.item -->
+                        {% endfor %}
+                     
+                        
+                    </div><!-- /.owl-carousel owl-theme -->
+                </div><!-- /.testimonials-one__content -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    
+</section><!-- /.testimonials-one -->
+
+
+
+
+

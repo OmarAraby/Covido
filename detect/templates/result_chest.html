@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block body %}
+
+
+
+
+
+<section class="page-header">
+    <div class="container">
+        <h2>Chest X-ray Detection Results</h2>
+        <ul class="thm-breadcrumb list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><span>Results</span></li>
+        </ul><!-- /.thm-breadcrumb -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+
+
+
+    <section class="about-three">
+            <div class="container">
+                <div class="block-title text-center">
+                    <h3 style="font-size: 70px; margin-top: -60px;">Input Image</h3>
+                </div><!-- /.block-title -->
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="about-three__image">
+                            <!-- <img src="assets/images/resources/about-2-1.png" alt=""> -->
+                        </div><!-- /.about-three__image -->
+                        <div>
+                            <img src="{% static "assets/images/shapes/funfact-virus-1-1.png" %}" style="padding-left: 50px;" class="funfact-one__virus-1" alt="">
+                            
+                        </div><!-- /.about-three__title -->
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-8" style="padding-bottom: 40px">
+                        
+                            <img src="{{ result_url }}" alt="Uploaded Image" height="300px" width="350px" style="margin-top: -20px;" >
+                            <img src="{% static "assets/images/shapes/funfact-virus-1-2.png" %}" style="padding-right: 50px" class="funfact-one__virus-2" alt="">
+                        <!-- /.about-three__image -->
+                    </div><!-- /.col-lg-8 -->
+
+
+
+
+                    
+
+                    
+                    
+
+
+                    
+                </div><!-- /.row -->
+                
+            </div><!-- /.container -->
+        </section><!-- /.about-three -->
+
+
+
+{% include "feedback.html" %}
+
+
+
+
+
+
+
+
+
+{% endblock body %}
