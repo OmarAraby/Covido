@@ -11,31 +11,39 @@ import pandas as pd
 
 
 
-url = "https://covid-19-tracking.p.rapidapi.com/v1/egypt"
+url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
 
 headers = {
-	"X-RapidAPI-Key": "3bf1f7dc73msh6c437be43ba2064p1ddbe8jsn4f6b3dd4ddf1",
-	"X-RapidAPI-Host": "covid-19-tracking.p.rapidapi.com"
+    "X-RapidAPI-Key": "3bf1f7dc73msh6c437be43ba2064p1ddbe8jsn4f6b3dd4ddf1",
+    "X-RapidAPI-Host": "corona-virus-world-and-india-data.p.rapidapi.com"
 }
-response = requests.get(url, headers=headers)
 
+response = requests.get(url, headers=headers)
 
 # Check if the request was successful before trying to parse JSON
 if response.status_code == 200:
     data = response.json()
 
-    chartLabel = "Covid-19"
-    chartdata = [data['Total Cases_text']]
-    recovered = [data['Total Recovered_text']]
-    death = [data['Total Deaths_text']]
+    # Extract data for Portugal
+    egypt_data = next((item for item in data['countries_stat'] if item['country_name'] == 'Egypt'), None)
+    
+    if egypt_data:
+        chartLabel = [egypt_data['country_name']]
+        chartdata = [egypt_data['cases']]
+        recovered = [egypt_data['total_recovered']]
+        death = [egypt_data['deaths']]
+    else:
+        # Handle the case where Portugal data is not found
+        chartLabel = ["Covid-19"]
+        chartdata = []
+        recovered = []
+        death = []
 else:
     # Handle the case where the request was not successful
-    chartLabel = "Covid-19"
+    chartLabel = ["Covid-19"]
     chartdata = []
     recovered = []
     death = []
-
-
 
 def forecast(request):
     # url = "https://covid-19-tracking.p.rapidapi.com/v1/egypt"

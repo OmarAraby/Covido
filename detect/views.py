@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from contact.models import Feedback,ImageSlide
+from .models import UploadedImage
+from django.urls import reverse
 from django.core.files.storage import FileSystemStorage  
 from django.conf import settings
 import os
@@ -10,37 +12,64 @@ import os
 
 
 
-def detect(request):
+# def detect(request):
 
-    feedbacks = Feedback.objects.all()  
-    images = ImageSlide.objects.all()  
-    if request.method == 'POST':
-        uploaded_image = request.FILES['image']
+#     feedbacks = Feedback.objects.all()  
+#     images = ImageSlide.objects.all()  
+#     if request.method == 'POST':
+#         uploaded_image = request.FILES['image']
        
 
-        # Save the uploaded image to a temporary location
-        fs = FileSystemStorage()
-        filename = fs.save(uploaded_image.name, uploaded_image)
-        #Dvalue=XrayPreduction.XrayP(str(filename))
+#         # Save the uploaded image to a temporary location
+#         fs = FileSystemStorage()
+#         filename = fs.save(uploaded_image.name, uploaded_image)
+#         #Dvalue=XrayPreduction.XrayP(str(filename))
 
-        # Construct the URL to the uploaded image
-        result_url = fs.url(filename)
+#         # Construct the URL to the uploaded image
+#         result_url = fs.url(filename)
+
+#         # Redirect to 'detect:result_chest' with the image URL as a parameter
+#         return  render(request, 'result_chest.html', {'result_url': result_url,'feedbacks': feedbacks, 'images': images})
+
+#     # If the request method is not POST, render the form
+#     return render(request, 'detect.html')
+
+
+def detect(request):
+    feedbacks = Feedback.objects.all()  
+    images = ImageSlide.objects.all()  
+
+    if request.method == 'POST':
+        uploaded_image = request.FILES['image']
+
+        # Save the uploaded image to a temporary location
+        # fs = FileSystemStorage()
+        # filename = fs.save(uploaded_image.name, uploaded_image)
+
+        # # Construct the URL to the uploaded image
+        # result_url = fs.url(filename)
+
+        # Create an instance of UploadedImage and save it to the database
+        uploaded_image_instance = UploadedImage.objects.create(image=uploaded_image)
+
+        context = {'uploaded_image': uploaded_image_instance,'feedbacks': feedbacks, 'images': images}
 
         # Redirect to 'detect:result_chest' with the image URL as a parameter
-        return  render(request, 'result_chest.html', {'result_url': result_url,'feedbacks': feedbacks, 'images': images})
+        return  render(request, 'result_chest.html', context)
 
     # If the request method is not POST, render the form
     return render(request, 'detect.html')
 
 
-def result_chest(request):
-    feedbacks = Feedback.objects.all()  
-    images = ImageSlide.objects.all()  
-    #result_url = request.GET.get('result', None)
 
-    context = {'feedbacks': feedbacks, 'images': images}
+# def result_chest(request):
+#     feedbacks = Feedback.objects.all()  
+#     images = ImageSlide.objects.all()  
+#     #result_url = request.GET.get('result', None)
 
-    return render(request, 'result_chest.html', context)
+#     context = {'feedbacks': feedbacks, 'images': images}
+
+#     return render(request, 'result_chest.html', context)
 
 
 

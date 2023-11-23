@@ -9,7 +9,7 @@ app_name='detect'
 urlpatterns = [
 
     path('' ,  views.detect , name='detect'),
-    path('result_chest/' ,  views.result_chest , name='result_chest'),
+    #path('result_chest/' ,  views.result_chest , name='result_chest'),
  
 
 ]
