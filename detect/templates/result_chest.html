@@ -42,8 +42,17 @@
                         
                             <img src="{{ uploaded_image.image.url }}" alt="Uploaded Image" height="300px" width="350px" style="margin-top: -20px;" >
                             <img src="{% static "assets/images/shapes/funfact-virus-1-2.png" %}" style="padding-right: 50px" class="funfact-one__virus-2" alt="">
-                        <!-- /.about-three__image -->
+                            
+                        
+                            <!-- /.about-three__image -->
                     </div><!-- /.col-lg-8 -->
+
+                    <div class="block-title text-center" style="padding: 40px 0; margin: 0 auto;">
+                        {% for score,name in combined_data %}
+                        <h3 style="font-size: 40px; ">This image is <span style="color: {% if forloop.first %}green{% else %}red{% endif %}; text-decoration: underline; font-weight: bold;">{{ score|floatformat:2 }}</span> percent <span style="color: {% if forloop.first %}green{% else %}red{% endif %}; "> {{ name }} </span> </h3>
+
+                        {% endfor %}
+                    </div><!-- /.block-title -->
                     
                 </div><!-- /.row -->
                 
