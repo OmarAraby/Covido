@@ -10,7 +10,9 @@ Covido can forecast the near future, trying to help people to reduce the feeling
 
 
 <h2 align="left"> Features </h2>
+
 * The main idea is to track Corona virus cases (Susceptible, Exposed, Infectious, and Removed or Recovered) By collecting data from more than one reliable source, then generate a forecasting models to for cast the near future death, recovery and new cases.
+
 * if a user needs to know if he is effected or not he can put his chest X-Ray Covido will predict, any user can tracing hospitals eligible to receive cases also follow where there are places for the injured or not, and where they are, also Doctors can give their advice in posts, users can reply to theirs.
 
 * Update ---> Two Years ago the daily data for death, recovery and new cases are available and there are many APIs provided them , Right now the Data sources are scarce , so currently I rely on available data, and the data are not daily collection 
