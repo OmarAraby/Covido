@@ -74,3 +74,10 @@ Admin Panal
 ![image](https://github.com/OmarAraby/Covido/assets/55214550/55b9752c-db74-404a-af59-a803152e3a16)
 
 
+
+
+
+![image](https://github.com/OmarAraby/Covido/assets/55214550/e97b9ded-59cf-47cc-b689-e3f375b553eb)
+
+
+
