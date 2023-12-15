@@ -1,4 +1,4 @@
-                                                          Covido Django Project ( Graduation Project )
+                                                          <h1>Covido Django Project ( Graduation Project )</h1>
 
 Covido is a covid-19 specialized for helping people to get information of the confirmed, recovery and deaths cases.
 
