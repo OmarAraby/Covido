@@ -20,8 +20,8 @@ Covido can forecast the near future, trying to help people to reduce the feeling
 <h2 align="left"> Team Members </h2>
 
 * Omar Mahamad Araby --> (Django backend - API - Data Visualization)
-* Karim Alamir Ahmad --> (Django backend - API)
-* Abdelrahman Roub --> ( Chest X-Ray Model )
+* Karim Al-Amir Ahmad --> (Django backend - API)
+* Abdelrahman Ruby --> ( Chest X-Ray Model )
 * Mariam Sabry Muhammad --> ( Death , Recovery and New Cases Forecasting Model)
 
 
