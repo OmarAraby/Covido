@@ -1,9 +1,13 @@
-                                                          <h1>Covido Django Project ( Graduation Project )</h1>
+<h1>Covido Django Project ( Graduation Project )</h1>
 
-Covido is a covid-19 specialized for helping people to get information of the confirmed, recovery and deaths cases.
+ 
+<h2 align="left"> Quick Note  </h2>
+the frontend section from this <a herf="https://github.com/kaushikjadhav01">Repo</a>
 
-
+<p>Covido Django Project a web application Built Using Django Framework and and (html - css - js) Templates that helping people to get information of the confirmed, recovery and deaths cases. 
 Covido can forecast the near future, trying to help people to reduce the feeling of danger because it makes the virus statistically and aware of its dimensions.
+
+</p>
 
 
 
