@@ -18,6 +18,7 @@ Covido can forecast the near future, trying to help people to reduce the feeling
 * Update ---> Two Years ago the daily data for death, recovery and new cases are available and there are many APIs provided them , Right now the Data sources are scarce , so currently I rely on available data, and the data are not daily collection 
 
 <h2 align="left"> Team Members </h2>
+
 * Omar Mahamad Araby --> (Django backend - API - Data Visualization)
 * Karim Alamir Ahmad --> (Django backend - API)
 * Abdelrahman Roub --> ( Chest X-Ray Model )
