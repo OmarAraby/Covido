@@ -59,9 +59,11 @@ pip install -r requirements.txt
 ```python
 python manage.py makemigrations
 python manage.py migrate
+```
+* If You want to clear Database
+```python
 python manage.py migrate --run-syncdb
 ```
-
 
 <h4> Step 6: create a superuser to get an access the admin panal</h4>
 
