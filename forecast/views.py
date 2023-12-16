@@ -14,7 +14,7 @@ import pandas as pd
 url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
 
 headers = {
-    "X-RapidAPI-Key": "3bf1f7dc73msh6c437be43ba2064p1ddbe8jsn4f6b3dd4ddf1",
+    "X-RapidAPI-Key": "************************************",
     "X-RapidAPI-Host": "corona-virus-world-and-india-data.p.rapidapi.com"
 }
 
