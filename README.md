@@ -4,7 +4,7 @@
 <h2 align="left"> Quick Note  </h2>
 <p> The Frontend Template from this <a href="https://github.com/kaushikjadhav01">Repo</a>
 
-Covido Django Project a web application Built Using Django Framework and and (html - css - js) Templates that helping people to get information of the confirmed, recovery and deaths cases. 
+Covido Django project is a web application Built Using Django Framework and and (html - css - js) Templates that helping people to get information of the confirmed, recovery and deaths cases. 
 Covido can forecast the near future, trying to help people to reduce the feeling of danger because it makes the virus statistically and aware of its dimensions.
 </p>
 
